@@ -7,9 +7,9 @@ import android.support.annotation.Nullable;
 import android.view.WindowManager;
 
 import com.dan.dome.R;
-import com.dan.library.util.ActivityUtil;
-import com.dan.library.util.DialogUtils;
-import com.dan.library.util.StatusBarUtils;
+import com.dan.common.util.ActivityUtil;
+import com.dan.common.util.DialogUtils;
+import com.dan.common.util.StatusBarUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

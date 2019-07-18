@@ -2,9 +2,9 @@ package com.dan.dome.networks;
 
 import android.util.Log;
 
-import com.dan.library.entity.AjaxResult;
-import com.dan.library.networks.HttpStatusCode;
-import com.dan.library.util.JsonUtil;
+import com.dan.common.entity.AjaxResult;
+import com.dan.common.networks.HttpStatusCode;
+import com.dan.common.util.JsonUtil;
 import com.xuexiang.xutil.tip.ToastUtils;
 import com.zhouyou.http.callback.CallBack;
 import com.zhouyou.http.exception.ApiException;

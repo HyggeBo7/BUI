@@ -7,8 +7,8 @@ import android.support.v7.app.AlertDialog;
 import android.view.WindowManager;
 
 import com.dan.dome.R;
-import com.dan.library.util.ActivityUtil;
-import com.dan.library.util.StatusBarUtils;
+import com.dan.common.util.ActivityUtil;
+import com.dan.common.util.StatusBarUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

@@ -16,7 +16,7 @@ import com.dan.dome.activity.CameraActivity;
 import com.dan.dome.entity.City;
 import com.dan.dome.entity.Material;
 import com.dan.dome.fragment.base.BaseFragment;
-import com.dan.library.util.JsonUtil;
+import com.dan.common.util.JsonUtil;
 import com.dan.ui.adapter.SimpleSpinnerTextFormatter;
 import com.dan.ui.widget.grouplist.ExpandTabView;
 import com.dan.ui.widget.grouplist.ViewMiddle;

@@ -3,7 +3,7 @@ package com.dan.dome.util;
 import android.app.Application;
 
 import com.dan.dome.entity.User;
-import com.dan.library.util.JsonUtil;
+import com.dan.common.util.JsonUtil;
 
 /**
  * Created by Johnny on 2017/9/27.

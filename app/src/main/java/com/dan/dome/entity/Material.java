@@ -1,7 +1,7 @@
 package com.dan.dome.entity;
 
-import com.dan.library.entity.BaseLongEntity;
-import com.dan.library.util.JsonUtil;
+import com.dan.common.entity.BaseLongEntity;
+import com.dan.common.util.JsonUtil;
 
 import java.math.BigDecimal;
 

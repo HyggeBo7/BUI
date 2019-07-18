@@ -1,7 +1,7 @@
 package com.dan.html.util;
 
-import com.dan.library.entity.AjaxResult;
-import com.dan.library.util.JsonUtil;
+import com.dan.common.entity.AjaxResult;
+import com.dan.common.util.JsonUtil;
 
 import io.dcloud.common.DHInterface.IWebview;
 import io.dcloud.common.util.JSUtil;

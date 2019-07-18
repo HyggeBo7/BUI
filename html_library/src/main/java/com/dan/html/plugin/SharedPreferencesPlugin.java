@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.dan.html.util.JSUtils;
-import com.dan.library.entity.AjaxResult;
+import com.dan.common.entity.AjaxResult;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;

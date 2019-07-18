@@ -12,13 +12,13 @@ import android.support.annotation.RequiresApi;
 
 import com.blankj.utilcode.util.PermissionUtils;
 import com.dan.html.util.JSUtils;
-import com.dan.library.appupdate.model.UpdateBean;
-import com.dan.library.appupdate.util.DownloadAppUtils;
-import com.dan.library.customview.ConfirmDialog;
-import com.dan.library.entity.AjaxResult;
-import com.dan.library.util.JsonUtil;
-import com.dan.library.util.PermissionsUtil;
-import com.dan.library.util.ToastUtil;
+import com.dan.common.appupdate.model.UpdateBean;
+import com.dan.common.appupdate.util.DownloadAppUtils;
+import com.dan.common.customview.ConfirmDialog;
+import com.dan.common.entity.AjaxResult;
+import com.dan.common.util.JsonUtil;
+import com.dan.common.util.PermissionsUtil;
+import com.dan.common.util.ToastUtil;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;

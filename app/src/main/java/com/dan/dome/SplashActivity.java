@@ -8,9 +8,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
 import com.dan.dome.activity.LoginActivity;
-import com.dan.library.util.PermissionsUtil;
-import com.dan.library.util.StatusBarUtils;
-import com.dan.library.util.ToastUtil;
+import com.dan.common.util.PermissionsUtil;
+import com.dan.common.util.StatusBarUtils;
+import com.dan.common.util.ToastUtil;
 
 /**
  * Created by Bo on 2019/1/17 15:30

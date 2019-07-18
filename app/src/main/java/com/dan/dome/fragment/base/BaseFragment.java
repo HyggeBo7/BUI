@@ -5,8 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.dan.dome.MainActivity;
-import com.dan.library.util.ActivityUtil;
-import com.dan.library.util.DialogUtils;
+import com.dan.common.util.ActivityUtil;
+import com.dan.common.util.DialogUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

@@ -2,7 +2,7 @@ package com.dan.dome;
 
 import android.app.Application;
 
-import com.dan.library.exception.CrashCatchHandler;
+import com.dan.common.exception.CrashCatchHandler;
 import com.xuexiang.xutil.XUtil;
 import com.zhouyou.http.EasyHttp;
 

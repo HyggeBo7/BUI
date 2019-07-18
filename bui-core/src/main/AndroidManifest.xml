@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dan.library">
+    package="com.dan.common">
 
     <!--访问sdcard-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
