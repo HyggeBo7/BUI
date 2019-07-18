@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFF</color>
+    <color name="red">#CD2626</color>
+    <color name="popup_main_background">#b0000000</color>
+    <color name="no_color">#00000000</color>
+    <color name="bg_black_overlay">#E0908C8C</color>
+
+    <!--etv-expand-bg-color-->
+    <color name="item_choose_ere_press_color">#f4f4f4</color>
+    <color name="etv_expand_frame">#E0908C8C</color>
+
+    <!--按钮-->
+    <color name="btn_blue">#108EE9</color>
+    <color name="btn_gray">#E0908C8C</color>
+</resources>

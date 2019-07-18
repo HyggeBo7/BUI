@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/no_color" />
+                    <corners android:radius="@dimen/etv_expand_radius" />
+                    <stroke android:width="@dimen/etv_expand_height" android:color="@color/etv_expand_frame" android:dashGap="0dp" />
+                </shape>
+            </item>
+            <item android:bottom="@dimen/etv_expand_padding" android:drawable="@drawable/etv_expand_press_down" android:left="@dimen/etv_expand_padding" android:right="@dimen/etv_expand_padding" android:top="@dimen/etv_expand_padding" />
+        </layer-list>
+    </item>
+    <item android:state_checked="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/no_color" />
+                    <corners android:radius="@dimen/etv_expand_radius" />
+                    <stroke android:width="@dimen/etv_expand_height" android:color="@color/etv_expand_frame" android:dashGap="0dp" />
+                </shape>
+            </item>
+            <item android:bottom="@dimen/etv_expand_padding" android:drawable="@drawable/etv_expand_press_up" android:left="@dimen/etv_expand_padding" android:right="@dimen/etv_expand_padding" android:top="@dimen/etv_expand_padding" />
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/no_color" />
+                    <corners android:radius="@dimen/etv_expand_radius" />
+                    <stroke android:width="@dimen/etv_expand_height" android:color="@color/etv_expand_frame" android:dashGap="0dp" />
+                </shape>
+            </item>
+            <item android:bottom="@dimen/etv_expand_padding" android:drawable="@drawable/etv_expand_down" android:left="@dimen/etv_expand_padding" android:right="@dimen/etv_expand_padding" android:top="@dimen/etv_expand_padding" />
+        </layer-list>
+    </item>
+</selector>

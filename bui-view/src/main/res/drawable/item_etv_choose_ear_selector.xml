@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--点击item显示颜色-->
+    <item android:drawable="@color/item_choose_ere_press_color" android:state_pressed="true"/>
+    <!--未选择默认颜色-->
+    <item android:drawable="@color/white"/>
+</selector>

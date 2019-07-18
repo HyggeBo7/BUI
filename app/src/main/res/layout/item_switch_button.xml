@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_linear_layout_shape"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我是标题呀"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!--开机关机-->
+        <ToggleButton
+            android:id="@+id/tb_switch"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_toggle_button_shape"
+            android:textColor="@color/white"
+            android:textOff="关"
+            android:textOn="开" />
+        <!--开关按钮-->
+        <com.dan.ui.widget.switchs.SwitchButton
+            android:id="@+id/sb_manual_auto"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            app:sb_background="#FFF"
+            app:sb_button_color="#00BCD4"
+            app:sb_checked_color="#34A139"
+            app:sb_checkline_color="#FFC107"
+            app:sb_end_text="自动"
+            app:sb_shadow_color="#A36F95"
+            app:sb_start_text="手动"
+            app:sb_text_size="26"
+            app:sb_uncheckcircle_color="#CD2626" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:background="@drawable/etv_expand_bg_mid"
+    android:orientation="horizontal">
+
+    <ListView
+        android:id="@+id/listViewLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:background="@color/white"
+        android:cacheColorHint="@color/no_color"
+        android:divider="#dcdcdc"
+        android:dividerHeight="1px"
+        android:paddingLeft="4dp"
+        android:layout_marginRight="5dp"
+        android:scrollbars="none"></ListView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <com.dan.ui.autoline.AutoWrapLineLayout
+            android:id="@+id/fl_Right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:fillMode="1"
+            app:horizontalGap="5dp"
+            app:verticalGap="5dp" />
+    </ScrollView>
+
+</merge>

@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="item_etv_expand_tab_height">45dp</dimen>
+    <dimen name="item_etv_expand_tab_ear_height">380dp</dimen>
+    <dimen name="head_bar_height">45dp</dimen>
+    <!--etv-expand-height-->
+    <dimen name="etv_expand_height">1dp</dimen>
+    <dimen name="etv_expand_radius">3dp</dimen>
+    <dimen name="etv_expand_padding">3dp</dimen>
+</resources>

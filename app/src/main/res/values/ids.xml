@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--login-->
+    <item name="et_login_username" type="id" />
+    <item name="et_login_pwd" type="id" />
+    <item name="btn_login_submit" type="id" />
+    <item name="cb_login_remember_pwd" type="id" />
+    <item name="cb_login_auto_login" type="id" />
+</resources>

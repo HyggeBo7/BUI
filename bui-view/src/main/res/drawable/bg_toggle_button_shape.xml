@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--android:shape=["rectangle"|"oval"|"line"|"ring"] 矩形、圆形、线条和环形-->
+    <!--关-->
+    <item android:state_checked="false">
+        <shape android:shape="oval">
+            <!-- 圆角 -->
+            <!--<corners android:radius="50dp" />-->
+            <!--填充颜色-->
+            <solid android:color="@color/red" />
+            <!-- 设置边框显示 -->
+            <stroke android:width="2dp" android:color="@color/white" android:dashGap="0dp" />
+        </shape>
+    </item>
+    <!--开-->
+    <item android:state_checked="true">
+        <shape android:shape="oval">
+            <solid android:color="#31B037" />
+            <stroke android:width="2dp" android:color="@color/white" android:dashGap="0dp" />
+        </shape>
+    </item>
+    <!--禁用-->
+    <item android:state_enabled="true">
+        <shape android:shape="oval">
+            <solid android:color="#aaa" />
+            <stroke android:width="2dp" android:color="@color/white" android:dashGap="0dp" />
+        </shape>
+    </item>
+</selector>

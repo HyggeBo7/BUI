@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="result_pop_padding">2dp</dimen>
+
+    <dimen name="shiliusp">16sp</dimen>
+    <dimen name="ershidp">20dp</dimen>
+
+    <dimen name="material_name">18sp</dimen>
+    <dimen name="material_code">14sp</dimen>
+    <dimen name="material_weight">18sp</dimen>
+    <dimen name="material_name_value">18sp</dimen>
+    <dimen name="material_code_value">14sp</dimen>
+    <dimen name="material_weight_value">18sp</dimen>
+
+    <dimen name="delete_x_height">35dp</dimen>
+</resources>

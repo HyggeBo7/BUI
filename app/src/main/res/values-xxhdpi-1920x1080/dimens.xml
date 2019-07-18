@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 1920x1080 -->
+    <dimen name="shiliusp">16sp</dimen>
+    <dimen name="ershidp">20dp</dimen>
+
+</resources>

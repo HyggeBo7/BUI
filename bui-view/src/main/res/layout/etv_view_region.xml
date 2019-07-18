@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_etv_expand_tab_ear_height"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:background="@drawable/etv_expand_bg_mid"
+    android:orientation="horizontal">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="@color/white"
+        android:cacheColorHint="@color/no_color"
+        android:divider="#dcdcdc"
+        android:dividerHeight="1px"
+        android:paddingLeft="4dp"
+        android:scrollbars="none"></ListView>
+
+    <ListView
+        android:id="@+id/listView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/item_choose_ere_press_color"
+        android:cacheColorHint="@color/no_color"
+        android:divider="@null"
+        android:paddingRight="4dp"></ListView>
+
+</merge>
