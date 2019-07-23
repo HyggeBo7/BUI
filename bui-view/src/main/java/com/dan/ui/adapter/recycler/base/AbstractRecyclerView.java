@@ -90,6 +90,16 @@ public abstract class AbstractRecyclerView<T> extends RecyclerView.Adapter<Abstr
     }
 
     @Override
+    public boolean remove(T item) {
+        if (checkNotEmpty()) {
+            if (this.mList.remove(item)) {
+                return notifyDataChanged();
+            }
+        }
+        return false;
+    }
+
+    @Override
     public boolean remove() {
         if (this.mList != null && this.mList.size() > 0) {
             if (customizeRemove(this.mList)) {

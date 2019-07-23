@@ -46,6 +46,8 @@ public interface BaseDataAdapter<T> {
      */
     boolean remove(int index);
 
+    boolean remove(T item);
+
     /**
      * 删除全部元素-默认清空全部,可以通过重写customizeRemove方法实现自定义条件删除
      *

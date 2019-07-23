@@ -107,6 +107,16 @@ public abstract class AbstractListAdapter<T> extends BaseAdapter implements Base
     }
 
     @Override
+    public boolean remove(T item) {
+        if (checkNotEmpty()) {
+            if (this.mList.remove(item)) {
+                return notifyDataChanged();
+            }
+        }
+        return false;
+    }
+
+    @Override
     public boolean remove() {
         if (checkNotEmpty()) {
             if (remove(this.mList)) {
