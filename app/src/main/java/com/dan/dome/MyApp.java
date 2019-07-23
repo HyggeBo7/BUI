@@ -2,8 +2,8 @@ package com.dan.dome;
 
 import android.app.Application;
 
+import com.dan.common.BUtil;
 import com.dan.common.exception.CrashCatchHandler;
-import com.xuexiang.xutil.XUtil;
 import com.zhouyou.http.EasyHttp;
 
 /**
@@ -22,7 +22,9 @@ public class MyApp extends Application {
     private void init() {
         //默认初始化
         EasyHttp.init(this);
-        XUtil.init(this);
+        //XUtil.init(this);
+        BUtil.init(this);
+        BUtil.debug(true);
     }
 
 }

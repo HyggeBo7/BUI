@@ -1,22 +1,17 @@
 package com.dan.ui.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.dan.ui.R;
 import com.dan.ui.adapter.impl.SpinnerTextFormatter;
+import com.dan.ui.adapter.list.base.BaseListAdapter;
 
 import java.util.List;
 
 
-public class SearchSelectAdapter<T> extends BaseAdapter {
-    private List<T> mList;
-    private Context context;
-    private LayoutInflater inflater;
+public class SearchSelectAdapter<T> extends BaseListAdapter<T, SearchSelectAdapter.ViewHolder> {
     private SpinnerTextFormatter spinnerTextFormatter;
 
     public SearchSelectAdapter(Context ctx) {
@@ -28,87 +23,23 @@ public class SearchSelectAdapter<T> extends BaseAdapter {
     }
 
     public SearchSelectAdapter(Context ctx, List<T> mList, SpinnerTextFormatter spinnerTextFormatter) {
-        this.context = ctx;
-        this.mList = mList;
-        this.inflater = LayoutInflater.from(ctx);
+        super(ctx, mList);
         this.spinnerTextFormatter = spinnerTextFormatter;
     }
 
     @Override
-    public int getCount() {
-        return this.mList != null ? this.mList.size() : 0;
+    protected ViewHolder newViewHolder(View convertView) {
+        return new ViewHolder(convertView);
     }
 
     @Override
-    public T getItem(int position) {
-        if (this.mList != null && position > -1 && position < this.mList.size()) {
-            return this.mList.get(position);
-        }
-        return null;
+    protected int getLayoutId() {
+        return R.layout.item_list_select_single;
     }
 
     @Override
-    public long getItemId(int position) {
-        return this.mList != null ? (long) position : -1;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder = null;
-        if (view == null) {
-            view = inflater.inflate(R.layout.item_list_select_single, null);
-            holder = new ViewHolder(view);
-            view.setTag(holder);
-        } else {
-            holder = (ViewHolder) view.getTag();
-        }
-        if (mList != null && mList.size() > 0) {
-            holder.info.setText(spinnerTextFormatter.format(mList.get(i)).toString());
-        }
-        return view;
-    }
-
-    public List<T> getItemAll() {
-        return this.mList;
-    }
-
-    public void setData(List<T> collection) {
-        if (this.mList == null) {
-            this.mList = collection;
-        } else {
-            this.mList.clear();
-            if (collection != null) {
-                this.mList.addAll(collection);
-            }
-        }
-        notifyDataSetChanged();
-    }
-
-    /**
-     * 添加一个元素
-     */
-    public void add(T item) {
-        if (item != null) {
-            this.mList.add(item);
-        }
-        notifyDataSetChanged();
-    }
-
-    /**
-     * 添加多个元素
-     */
-    public void add(List<T> collection) {
-        if (collection != null) {
-            this.mList.addAll(collection);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void clear() {
-        if (this.mList != null) {
-            this.mList.clear();
-            notifyDataSetChanged();
-        }
+    protected void convert(ViewHolder holder, T item, int position) {
+        holder.info.setText(spinnerTextFormatter.format(item).toString());
     }
 
     static class ViewHolder {

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author bo
+ * @author Bo
  * @email wubodanran@163.com
  * @desc 通用Recycler适配器
  * @date 2019/7/12 14:31
@@ -32,9 +32,7 @@ public abstract class QuickRecyclerAdapter<T> extends AbstractRecyclerView<T> {
     }
 
     public QuickRecyclerAdapter(Context context, int layoutId) {
-        this.context = context;
-        this.layoutId = layoutId;
-        this.mList = new ArrayList<>();
+        this(context, layoutId, new ArrayList<T>());
     }
 
     public QuickRecyclerAdapter(Context context, int layoutId, List<T> mList) {

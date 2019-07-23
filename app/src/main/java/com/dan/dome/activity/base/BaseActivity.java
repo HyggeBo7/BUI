@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.WindowManager;
 
-import com.dan.dome.R;
-import com.dan.common.util.ActivityUtil;
 import com.dan.common.util.DialogUtils;
 import com.dan.common.util.StatusBarUtils;
+import com.dan.dome.R;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -26,7 +25,7 @@ public class BaseActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarUtils.setWindowStatusBarColor(this, R.color.head_background_back_all);
-        ActivityUtil.getInstance().addActivity(this);
+        //ActivityLifecycleHelper.getInstance().addActivity(this);
 
         mLoading = DialogUtils.createLoadingDialog(this);
         //软件盘自动打开
@@ -51,7 +50,7 @@ public class BaseActivity extends Activity {
             unbinder.unbind();
             unbinder = null;
         }
-        ActivityUtil.getInstance().removeActivity(this);
+        //ActivityLifecycleHelper.getInstance().removeActivity(this);
     }
 
 }

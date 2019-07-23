@@ -11,23 +11,27 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.dan.common.BUtil;
+import com.dan.common.toast.ToastUtils;
+import com.dan.common.toast.style.ToastQQStyle;
+import com.dan.common.toast.style.ToastWhiteStyle;
+import com.dan.common.util.JsonUtil;
 import com.dan.dome.R;
 import com.dan.dome.activity.CameraActivity;
 import com.dan.dome.entity.City;
 import com.dan.dome.entity.Material;
 import com.dan.dome.fragment.base.BaseFragment;
-import com.dan.common.util.JsonUtil;
 import com.dan.ui.adapter.SimpleSpinnerTextFormatter;
 import com.dan.ui.widget.grouplist.ExpandTabView;
 import com.dan.ui.widget.grouplist.ViewMiddle;
 import com.dan.ui.widget.searchselect.SearchSelectDialog;
-import com.xuexiang.xutil.tip.ToastUtils;
 
 import org.angmarch.views.NiceSpinner;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +52,6 @@ public class OtherFragment extends BaseFragment {
     @BindView(R.id.etv_list)
     ExpandTabView expandTabView;
 
-    private List<View> mViewArray = new ArrayList<View>();
     private ViewMiddle viewMiddle;
     private Map<String, List<Material>> mapList = new LinkedHashMap<>();
 
@@ -62,6 +65,15 @@ public class OtherFragment extends BaseFragment {
     //打开相机
     @BindView(R.id.btn_open_camera)
     Button btnOpenCamera;
+
+    @BindView(R.id.btn_toast)
+    Button btnToast;
+
+    @BindView(R.id.btn_toast_style)
+    Button btnToastStyle;
+
+    @BindView(R.id.btn_toast_img)
+    Button btnToastImg;
 
     private List<City> mDataList;
     private SearchSelectDialog searchSelectDialog;
@@ -80,10 +92,9 @@ public class OtherFragment extends BaseFragment {
         //expandTabView = view.findViewById(R.id.etv_list);
 
         viewMiddle = new ViewMiddle(getContext());
-        mViewArray.add(viewMiddle);
         //设置创建时按钮禁用
         expandTabView.setCreateToggleButtonEnabled(false);
-        expandTabView.setValue(Arrays.asList("原料加载中..."), mViewArray);
+        expandTabView.setValue(Collections.singletonList("原料加载中..."), Collections.singletonList(viewMiddle));
         //设置右边显示数据,格式化
         viewMiddle.setPlateTextFormatter(new SimpleSpinnerTextFormatter() {
             @Override
@@ -212,6 +223,31 @@ public class OtherFragment extends BaseFragment {
             case R.id.btn_open_camera:
                 Intent intent = new Intent(getActivity(), CameraActivity.class);
                 startActivityForResult(intent, 77);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private int i = 0;
+
+    @OnClick({R.id.btn_toast, R.id.btn_toast_style, R.id.btn_toast_img})
+    void onClickToast(View v) {
+        switch (v.getId()) {
+            case R.id.btn_toast:
+                ToastUtils.toast("啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦:" + (++i));
+                break;
+            case R.id.btn_toast_style:
+                ToastUtils.toast("begin哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈:" + (++i), new ToastQQStyle(BUtil.getContext()));
+                break;
+            case R.id.btn_toast_img:
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        ToastUtils.toast("子线程调用啦啦啦啊" + (++i), new ToastWhiteStyle(BUtil.getContext()));
+                    }
+                };
+                thread.start();
                 break;
             default:
                 break;

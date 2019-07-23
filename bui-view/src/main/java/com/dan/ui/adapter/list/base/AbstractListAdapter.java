@@ -1,9 +1,6 @@
-package com.dan.ui.adapter;
+package com.dan.ui.adapter.list.base;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.dan.ui.adapter.base.BaseDataAdapter;
@@ -12,26 +9,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Bo on 2019/2/25 15:08
+ * Created by Dan on 2019/7/23 15:43
  */
-public abstract class SwipeMenuAdapter<T> extends BaseAdapter implements BaseDataAdapter<T> {
-    private Context mContext;
-    private List<T> mList;
-    private LayoutInflater mInflater;
-    private int layoutId;
+public abstract class AbstractListAdapter<T> extends BaseAdapter implements BaseDataAdapter<T> {
 
-    public SwipeMenuAdapter(Context context, int layoutId) {
+    private Context mContext;
+
+    /**
+     * 数据
+     */
+    private List<T> mList;
+
+    public AbstractListAdapter(Context context) {
         this.mContext = context;
-        this.mInflater = LayoutInflater.from(context);
-        this.layoutId = layoutId;
         this.mList = new ArrayList<>();
     }
 
-    public SwipeMenuAdapter(Context context, List<T> dataList, int layoutId) {
-        this.mContext = context;
-        this.mInflater = LayoutInflater.from(context);
-        this.mList = dataList;
-        this.layoutId = layoutId;
+    public AbstractListAdapter(Context context, List<T> data) {
+        mContext = context;
+        setData(data);
     }
 
     @Override
@@ -41,7 +37,7 @@ public abstract class SwipeMenuAdapter<T> extends BaseAdapter implements BaseDat
 
     @Override
     public T getItem(int position) {
-        if (this.mList != null && position > -1 && position < this.mList.size()) {
+        if (checkIndex(position)) {
             return this.mList.get(position);
         }
         return null;
@@ -50,23 +46,6 @@ public abstract class SwipeMenuAdapter<T> extends BaseAdapter implements BaseDat
     @Override
     public long getItemId(int position) {
         return this.mList != null ? (long) position : -1;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        SwipeMenuViewHolder holder = SwipeMenuViewHolder.get(this.mContext, convertView, parent, this.layoutId, position);
-        this.onBindViewHolder(holder, this.getItem(position), position);
-        return holder.getConvertView();
-    }
-
-    public abstract void onBindViewHolder(SwipeMenuViewHolder viewHolder, T t, int position);
-
-    public boolean remove(List<T> list) {
-        if (this.mList != null && this.mList.size() > 0) {
-            this.mList.clear();
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -111,7 +90,7 @@ public abstract class SwipeMenuAdapter<T> extends BaseAdapter implements BaseDat
 
     @Override
     public boolean update(T item, int index) {
-        if (checkIndex(index) && item != null) {
+        if (checkIndex(index)) {
             this.mList.set(index, item);
             return notifyDataChanged();
         }
@@ -129,7 +108,7 @@ public abstract class SwipeMenuAdapter<T> extends BaseAdapter implements BaseDat
 
     @Override
     public boolean remove() {
-        if (this.mList != null && this.mList.size() > 0) {
+        if (checkNotEmpty()) {
             if (remove(this.mList)) {
                 return notifyDataChanged();
             }
@@ -137,9 +116,22 @@ public abstract class SwipeMenuAdapter<T> extends BaseAdapter implements BaseDat
         return false;
     }
 
+    public boolean remove(List<T> list) {
+        if (checkNotEmpty(list)) {
+            list.clear();
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public T getItemData(int index) {
         return getItem(index);
+    }
+
+    @Override
+    public List<T> getDataList() {
+        return this.mList;
     }
 
     @Override
@@ -158,15 +150,18 @@ public abstract class SwipeMenuAdapter<T> extends BaseAdapter implements BaseDat
 
     @Override
     public void clear() {
-        if (this.mList != null) {
+        if (checkNotEmpty()) {
             this.mList.clear();
             notifyDataChanged();
         }
     }
 
-    @Override
-    public List<T> getDataList() {
-        return this.mList;
+    private boolean checkNotEmpty() {
+        return checkNotEmpty(this.mList);
+    }
+
+    private boolean checkNotEmpty(List<T> list) {
+        return list != null && list.size() > 0;
     }
 
     private boolean checkIndex(int index) {
@@ -179,4 +174,7 @@ public abstract class SwipeMenuAdapter<T> extends BaseAdapter implements BaseDat
         return true;
     }
 
+    public Context getContext() {
+        return mContext;
+    }
 }

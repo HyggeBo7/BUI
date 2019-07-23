@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.dan.dome.MainActivity;
-import com.dan.common.util.ActivityUtil;
+import com.dan.common.util.ActivityLifecycleHelper;
 import com.dan.common.util.DialogUtils;
 
 import butterknife.ButterKnife;
@@ -28,7 +28,7 @@ public abstract class BaseFragment extends Fragment {
         mLoading = DialogUtils.createLoadingDialog(getContext());
         mainActivity = (MainActivity) getActivity();
         setShowOrHide();
-        ActivityUtil.getInstance().addActivity(getActivity());
+        //ActivityLifecycleHelper.getInstance().addActivity(getActivity());
     }
 
     @Override
@@ -49,7 +49,7 @@ public abstract class BaseFragment extends Fragment {
             unbinder = null;
         }
         super.onDestroyView();
-        ActivityUtil.getInstance().addActivity(getActivity());
+        //ActivityLifecycleHelper.getInstance().addActivity(getActivity());
     }
 
     /**

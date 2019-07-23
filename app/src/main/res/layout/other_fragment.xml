@@ -63,4 +63,37 @@
         android:textColor="#ffffff"
         android:textSize="18sp" />
 
+    <Button
+        android:id="@+id/btn_toast"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_bg"
+        android:gravity="center"
+        android:text="toast"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_toast_style"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_bg"
+        android:gravity="center"
+        android:text="toast style"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_toast_img"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_bg"
+        android:gravity="center"
+        android:text="toast img"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
 </LinearLayout>

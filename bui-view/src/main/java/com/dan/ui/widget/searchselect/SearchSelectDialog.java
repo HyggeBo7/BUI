@@ -476,7 +476,7 @@ public class SearchSelectDialog extends Dialog {
          * @return ListView列表上的内容
          */
         public List<T> getAdapterItemAll() {
-            return this.mSelectAdapter.getItemAll();
+            return this.mSelectAdapter.getDataList();
         }
     }
 

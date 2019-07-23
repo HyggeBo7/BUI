@@ -7,7 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.WindowManager;
 
 import com.dan.dome.R;
-import com.dan.common.util.ActivityUtil;
+import com.dan.common.util.ActivityLifecycleHelper;
 import com.dan.common.util.StatusBarUtils;
 
 import butterknife.ButterKnife;
@@ -29,7 +29,7 @@ public class BaseFragmentActivity extends FragmentActivity {
         StatusBarUtils.setWindowStatusBarColor(this, R.color.head_background_back_all);
         //软件盘自动打开
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        ActivityUtil.getInstance().addActivity(this);
+        //ActivityLifecycleHelper.getInstance().addActivity(this);
     }
 
     @Override
@@ -49,6 +49,6 @@ public class BaseFragmentActivity extends FragmentActivity {
             unbinder.unbind();
             unbinder = null;
         }
-        ActivityUtil.getInstance().removeActivity(this);
+        //ActivityLifecycleHelper.getInstance().removeActivity(this);
     }
 }

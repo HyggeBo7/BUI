@@ -7,7 +7,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,7 +29,7 @@ dependencies {
     api 'org.apache.commons:commons-lang3:3.8'
     api 'com.google.code.gson:gson:2.8.2'
     //工具类
-    api 'com.github.xuexiangjys.XUtil:xutil-core:1.1.5'
+    //api 'com.github.xuexiangjys.XUtil:xutil-core:1.1.5'
     //api 'com.github.xuexiangjys.XUtil:xutil-sub:1.1.5'
 }
 apply from: '../JitPackUpload.gradle'

@@ -8,18 +8,18 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.dan.dome.MainActivity;
-import com.dan.dome.R;
-import com.dan.dome.activity.base.BaseActivity;
-import com.dan.dome.networks.HttpConfig;
-import com.dan.dome.enums.LoginKeyEnum;
-import com.dan.dome.util.SystemApplication;
-import com.dan.common.networks.HttpStatusCode;
 import com.dan.common.entity.AjaxResult;
+import com.dan.common.networks.HttpStatusCode;
+import com.dan.common.toast.ToastUtils;
 import com.dan.common.util.JsonUtil;
 import com.dan.common.util.SharedUtil;
 import com.dan.common.util.StatusBarUtils;
-import com.dan.common.util.ToastUtil;
+import com.dan.dome.MainActivity;
+import com.dan.dome.R;
+import com.dan.dome.activity.base.BaseActivity;
+import com.dan.dome.enums.LoginKeyEnum;
+import com.dan.dome.networks.HttpConfig;
+import com.dan.dome.util.SystemApplication;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
@@ -90,16 +90,16 @@ public class LoginActivity extends BaseActivity {
         final String account = etUserName.getText().toString();
         final String password = etPwd.getText().toString();
         if (StringUtils.isBlank(account)) {
-            ToastUtil.makeText(LoginActivity.this, "账号不能为空!");
+            ToastUtils.toast("账号不能为空!");
             return;
         }
         if (StringUtils.isBlank(password)) {
-            ToastUtil.makeText(LoginActivity.this, "密码不能为空!");
+            ToastUtils.toast("密码不能为空!");
             return;
         }
         login(account, password);
 
-        //ToastUtil.makeText(LoginActivity.this, "登录成功!userName:" + userName + ",pwd:" + pwd);
+        //ToastUtils.toast("登录成功!userName:" + userName + ",pwd:" + pwd);
     }
 
     private void login(final String account, final String password) {
@@ -113,9 +113,9 @@ public class LoginActivity extends BaseActivity {
                     public void onError(ApiException e) {
                         mLoading.dismiss();
                         if (e.getCode() >= ApiException.UNKNOWN) {
-                            ToastUtil.makeText(LoginActivity.this, e.getMessage());
+                            ToastUtils.toast(e.getMessage());
                         } else {
-                            ToastUtil.makeText(LoginActivity.this, HttpStatusCode.getHttpStatusMsg(e.getCode()));
+                            ToastUtils.toast(HttpStatusCode.getHttpStatusMsg(e.getCode()));
                         }
                         btnSubmit.setBackgroundResource(android.R.color.holo_blue_dark);
                         btnSubmit.setEnabled(true);
@@ -142,13 +142,13 @@ public class LoginActivity extends BaseActivity {
                             SystemApplication.setDataToken(result.getData().toString());
                             SystemApplication.setUserAccount(account);
                             SystemApplication.setUserPassword(password);
-                            ToastUtil.makeText(LoginActivity.this, "登录成功!" + JsonUtil.toJson(result));
+                            ToastUtils.toast("登录成功!" + JsonUtil.toJson(result));
                             //跳转
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            ToastUtil.makeText(LoginActivity.this, result.getMsg() == null ? "登录失败!" : result.getMsg());
+                            ToastUtils.toast(result.getMsg() == null ? "登录失败!" : result.getMsg());
                         }
                     }
 

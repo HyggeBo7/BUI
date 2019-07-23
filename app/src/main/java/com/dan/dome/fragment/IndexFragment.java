@@ -7,13 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.dan.common.util.JsonUtil;
+import com.dan.common.util.ToastUtil;
 import com.dan.dome.R;
 import com.dan.dome.entity.Material;
 import com.dan.dome.fragment.base.BaseFragment;
-import com.dan.common.util.JsonUtil;
-import com.dan.common.util.ToastUtil;
-import com.dan.ui.adapter.SwipeMenuAdapter;
-import com.dan.ui.adapter.SwipeMenuViewHolder;
+import com.dan.ui.adapter.list.QuickListAdapter;
 import com.dan.ui.widget.swipelist.SwipeMenuLayout;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class IndexFragment extends BaseFragment {
 
     private Integer dataSize = 100;
 
-    private SwipeMenuAdapter<Material> materialSwipeMenuAdapter;
+    private QuickListAdapter<Material> materialSwipeMenuAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,9 +47,10 @@ public class IndexFragment extends BaseFragment {
 
     private void initView(View view) {
         //listView = view.findViewById(R.id.li_listView);
-        listView.setAdapter(materialSwipeMenuAdapter = new SwipeMenuAdapter<Material>(getContext(), R.layout.item_cst_swipe) {
+        listView.setAdapter(materialSwipeMenuAdapter = new QuickListAdapter<Material>(getContext(), R.layout.item_cst_swipe) {
+
             @Override
-            public void onBindViewHolder(SwipeMenuViewHolder holder, Material model, int position) {
+            public void onBindViewHolder(QuickViewHolder holder, Material model, int position) {
                 //((SwipeMenuLayout)holder.getConvertView()).setIos(false);//这句话关掉IOS阻塞式交互效果
                 SwipeMenuLayout convertView = (SwipeMenuLayout) holder.getConvertView();
                 if (model.getTempFlag() == null || !model.getTempFlag()) {

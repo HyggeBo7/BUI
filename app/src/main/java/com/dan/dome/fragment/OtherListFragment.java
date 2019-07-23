@@ -2,20 +2,19 @@ package com.dan.dome.fragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.SimpleItemAnimator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.dan.common.toast.ToastUtils;
 import com.dan.dome.R;
 import com.dan.dome.entity.User;
 import com.dan.dome.fragment.base.BaseFragment;
 import com.dan.ui.adapter.recycler.base.QuickRecyclerAdapter;
 import com.dan.ui.widget.dragrecycler.DragSortListRecycler;
 import com.dan.ui.widget.dragrecycler.DragSortListRecyclerAdapter;
-import com.xuexiang.xutil.tip.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;

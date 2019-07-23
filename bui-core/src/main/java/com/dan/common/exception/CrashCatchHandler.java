@@ -4,10 +4,10 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
-import com.dan.common.util.ActivityUtil;
+import com.dan.common.BUtil;
+import com.dan.common.toast.ToastUtils;
 import com.dan.common.util.DateUtil;
 import com.dan.common.util.FileUtil;
-import com.xuexiang.xutil.tip.ToastUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -153,11 +153,12 @@ public class CrashCatchHandler implements Thread.UncaughtExceptionHandler {
         } else {
             ToastUtils.toast("很抱歉,程序出现异常,请重新打开!");
             //退出程序,finish所有的Activity
-            ActivityUtil.getInstance().finishAll();
-            //杀死这个进程避免类似ios直接退出。
-            android.os.Process.killProcess(android.os.Process.myPid());
+            //ActivityLifecycleHelper.getInstance().finishAll();
+            BUtil.getInstance().getActivityLifecycleHelper().exit();
             //退出Jvm,释放所占内存资源，0表示正常退出，非0表示异常
             System.exit(1);
+            //杀死这个进程避免类似ios直接退出。
+            android.os.Process.killProcess(android.os.Process.myPid());
         }
     }
 

@@ -5,7 +5,7 @@ import android.util.Log;
 import com.dan.common.entity.AjaxResult;
 import com.dan.common.networks.HttpStatusCode;
 import com.dan.common.util.JsonUtil;
-import com.xuexiang.xutil.tip.ToastUtils;
+import com.dan.common.toast.ToastUtils;
 import com.zhouyou.http.callback.CallBack;
 import com.zhouyou.http.exception.ApiException;
 
