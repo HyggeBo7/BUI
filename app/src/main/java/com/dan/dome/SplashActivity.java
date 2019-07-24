@@ -100,13 +100,11 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
     @Override
     public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            Logger.d("某些权限已被拒绝:===1====");
             new AppSettingsDialog.Builder(this)
                     .setTitle("需要权限")
                     .setRationale("没有请求权限，此应用程序可能无法正常工作，打开应用设置屏幕以修改应用权限。")
                     .build().show();
         } else {
-            Logger.d("某些权限已被拒绝:===2====");
             ToastUtils.toast("请开通相关权限，否则无法正常使用本应用！");
             permissions(perms);
         }
