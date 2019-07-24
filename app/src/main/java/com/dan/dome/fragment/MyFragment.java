@@ -17,7 +17,7 @@ import com.dan.dome.activity.LoginActivity;
 import com.dan.dome.enums.LoginKeyEnum;
 import com.dan.dome.fragment.base.BaseFragment;
 import com.dan.dome.util.SystemApplication;
-import com.dan.common.customview.ConfirmDialog;
+import com.dan.common.view.ConfirmDialog;
 import com.dan.common.util.ApkUtil;
 import com.dan.common.util.SharedUtil;
 import com.dan.ui.widget.item.ItemView;

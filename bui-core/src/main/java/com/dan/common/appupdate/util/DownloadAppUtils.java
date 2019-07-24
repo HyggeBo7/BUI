@@ -15,7 +15,7 @@ import com.azhon.appupdate.config.UpdateConfiguration;
 import com.azhon.appupdate.manager.DownloadManager;
 import com.azhon.appupdate.utils.ApkUtil;
 import com.dan.common.appupdate.model.UpdateBean;
-import com.dan.common.customview.ConfirmDialog;
+import com.dan.common.view.ConfirmDialog;
 
 /**
  * Created by Bo on 2018/11/16 10:25

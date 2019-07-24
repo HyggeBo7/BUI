@@ -2,27 +2,35 @@ package com.dan.dome;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
-import com.dan.dome.activity.LoginActivity;
-import com.dan.common.util.PermissionsUtil;
+import com.dan.common.log.Logger;
+import com.dan.common.toast.ToastUtils;
+import com.dan.common.util.JsonUtil;
 import com.dan.common.util.StatusBarUtils;
-import com.dan.common.util.ToastUtil;
+import com.dan.dome.activity.LoginActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * Created by Bo on 2019/1/17 15:30
  * 启动页
  */
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
 
     //两秒后进入系统
-    private final int SPLASH_DISPLAY_TIME = 2000;
-    private boolean testFlag = false;
+    private static final int SPLASH_DISPLAY_TIME = 2000;
+    private static final boolean testFlag = false;
+    private static final int RC_ALL_PERM = 1;
     private int permissionSize = 0;
-    private int maxPermissionSize = 7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,29 +54,64 @@ public class SplashActivity extends AppCompatActivity {
         SplashActivity.this.finish();
     }
 
+    @AfterPermissionGranted(RC_ALL_PERM)
     public void permissions() {
-        String[] permissionsList = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        PermissionsUtil permissionsUtil = new PermissionsUtil(this);
-        if (!permissionsUtil.checkPermission(permissionsList)) {
-            permissionSize++;
-            permissionsUtil.getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, permissionsList);
-        } else {
-            //停留2秒然后进主页面
-            new android.os.Handler().postDelayed(this::init, SPLASH_DISPLAY_TIME);
+        List<String> permissionList = new ArrayList<>();
+        permissionList.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            permissionList.add(Manifest.permission.FOREGROUND_SERVICE);
         }
+        if (!EasyPermissions.hasPermissions(SplashActivity.this, permissionList.toArray(new String[0]))) {
+            permissionSize++;
+            permissions(permissionList);
+        } else {
+            if (permissionSize < 1) {
+                //停留2秒然后进主页面
+                new android.os.Handler().postDelayed(this::init, SPLASH_DISPLAY_TIME);
+            } else {
+                init();
+            }
+        }
+    }
+
+    /**
+     * 给没有授权的重新申请
+     *
+     * @param permissionList 为申请的权限
+     */
+    public void permissions(@NonNull List<String> permissionList) {
+        EasyPermissions.requestPermissions(SplashActivity.this, "需要访问手机储存权限!", RC_ALL_PERM, permissionList.toArray(new String[0]));
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            init();
+        //将结果转发给EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+        //已授予某些权限
+        Logger.d("已授予某些权限:requestCode:" + requestCode + ",perms:" + JsonUtil.toJson(perms));
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            Logger.d("某些权限已被拒绝:===1====");
+            new AppSettingsDialog.Builder(this)
+                    .setTitle("需要权限")
+                    .setRationale("没有请求权限，此应用程序可能无法正常工作，打开应用设置屏幕以修改应用权限。")
+                    .build().show();
         } else {
-            ToastUtil.makeText(getApplicationContext(), "请开通相关权限，否则无法正常使用本应用！");
-            if (permissionSize < maxPermissionSize) {
-                permissions();
-            }
+            Logger.d("某些权限已被拒绝:===2====");
+            ToastUtils.toast("请开通相关权限，否则无法正常使用本应用！");
+            permissions(perms);
         }
+        //某些权限已被拒绝
+        Logger.d("某些权限已被拒绝:requestCode:" + requestCode + ",perms:" + JsonUtil.toJson(perms));
     }
 
 }

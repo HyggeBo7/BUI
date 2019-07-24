@@ -7,7 +7,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0.3"
+        versionName "1.0.4"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -43,4 +43,5 @@ dependencies {
     api project(path: ':bui-core')
     /*工具类->https://github.com/Blankj/AndroidUtilCode/tree/master/utilcode*/
     api 'com.blankj:utilcode:1.23.4'
+    api 'pub.devrel:easypermissions:2.0.1'
 }

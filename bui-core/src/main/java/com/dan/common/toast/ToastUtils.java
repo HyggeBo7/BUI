@@ -38,9 +38,8 @@ public final class ToastUtils {
     static {
         if (toastStyleGlobal == null) {
             toastStyleGlobal = new ToastBlackStyle(BUtil.getContext());
-            Logger.d("ToastUtils========static========toastStyleGlobal");
+            Logger.d("ToastUtils========init========toastStyle");
         }
-        Logger.d("ToastUtils========static========init");
     }
 
     /**

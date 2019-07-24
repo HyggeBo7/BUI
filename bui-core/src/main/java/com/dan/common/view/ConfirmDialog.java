@@ -1,4 +1,4 @@
-package com.dan.common.customview;
+package com.dan.common.view;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 
 import com.dan.common.R;
+
 
 /**
  * Created by Bo on 2018/11/9 14:44

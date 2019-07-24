@@ -22,7 +22,7 @@ import com.dan.dome.fragment.OtherFragment;
 import com.dan.dome.fragment.OtherListFragment;
 import com.dan.dome.fragment.base.BaseFragmentActivity;
 import com.dan.dome.util.SystemApplication;
-import com.dan.common.customview.ConfirmDialog;
+import com.dan.common.view.ConfirmDialog;
 import com.dan.common.entity.AjaxResult;
 import com.dan.common.util.JsonUtil;
 import com.dan.common.util.NetworkUtil;

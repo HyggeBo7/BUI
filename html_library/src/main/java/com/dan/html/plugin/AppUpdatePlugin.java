@@ -11,20 +11,20 @@ import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 
 import com.blankj.utilcode.util.PermissionUtils;
-import com.dan.html.util.JSUtils;
 import com.dan.common.appupdate.model.UpdateBean;
 import com.dan.common.appupdate.util.DownloadAppUtils;
-import com.dan.common.customview.ConfirmDialog;
 import com.dan.common.entity.AjaxResult;
 import com.dan.common.util.JsonUtil;
-import com.dan.common.util.PermissionsUtil;
 import com.dan.common.util.ToastUtil;
+import com.dan.common.view.ConfirmDialog;
+import com.dan.html.util.JSUtils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 
 import io.dcloud.common.DHInterface.IWebview;
 import io.dcloud.common.DHInterface.StandardFeature;
+import pub.devrel.easypermissions.EasyPermissions;
 
 
 /**
@@ -44,8 +44,7 @@ public class AppUpdatePlugin extends StandardFeature {
         final String callbackId = jsonArray.optString(0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             String[] permissionsList = new String[]{Manifest.permission.REQUEST_INSTALL_PACKAGES};
-            PermissionsUtil permissionsUtil = new PermissionsUtil(iWebview.getActivity());
-            if (!permissionsUtil.checkPermission(permissionsList)) {
+            if (!EasyPermissions.hasPermissions(iWebview.getActivity(), permissionsList)) {
                 PermissionUtils.permission(permissionsList).callback(new PermissionUtils.SimpleCallback() {
                     /**
                      * 请求成功

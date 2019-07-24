@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.dan.dome">
 
     <!--安装权限-->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <!--应用联网，发送请求数据至服务器-->
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 访问网络，网络定位需要上网-->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--读取、写入内存-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--9.0后前台服务需要申请权限-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!--android:usesCleartextTraffic="true":安卓9,不加访问不了服务器->-->
     <application
         android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="n">
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -43,9 +49,9 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <!--安卓9,不加会报找不到BasicHttpParams-->
-        <uses-library
+        <!--<uses-library
             android:name="org.apache.http.legacy"
-            android:required="false" />
+            android:required="false" />-->
     </application>
 
 </manifest>
