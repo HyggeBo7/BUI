@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <!--Android 9.0 https请求适配-->
+    <!-- 配置7.0抓包-start -->
+    <debug-overrides>
+        <trust-anchors>
+            <!-- Trust user added CAs while debuggable only -->
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+    <!-- 配置7.0抓包-end -->
+
+    <!--Android 9.0 https请求适配,明文请求-start-->
     <base-config cleartextTrafficPermitted="true" />
+    <!--Android 9.0 https请求适配,明文请求-end-->
 </network-security-config>
