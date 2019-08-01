@@ -1,5 +1,6 @@
 package com.dan.common.exception;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
@@ -33,7 +34,8 @@ public class CrashCatchHandler implements Thread.UncaughtExceptionHandler {
 
     private String thisPath;
 
-    private static CrashCatchHandler INSTANCE;
+    @SuppressLint("StaticFieldLeak")
+    private static volatile CrashCatchHandler INSTANCE;
 
     private static final String PATH = Environment.getExternalStorageDirectory().getPath() + "/log/";
 
@@ -175,5 +177,15 @@ public class CrashCatchHandler implements Thread.UncaughtExceptionHandler {
         //写入本地日志
         writeToSDCardFile(ex);
         return true;
+    }
+
+    /**
+     * 防止反序列化
+     * 由于反序列化时会调用readResolve这个钩子方法，只需要把当前的对象返回而不是去创建一个新的对象
+     *
+     * @return Object
+     */
+    private Object readResolve() {
+        return INSTANCE;
     }
 }

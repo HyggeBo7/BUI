@@ -19,7 +19,7 @@ public class BUtil {
     private static Context sContext;
 
     @SuppressLint("StaticFieldLeak")
-    private static BUtil sInstance;
+    private static volatile BUtil sInstance;
 
     private static Application sApplication;
 
@@ -152,5 +152,9 @@ public class BUtil {
 
     public static Application getApplication() {
         return sApplication;
+    }
+
+    private Object readResolve() {
+        return sInstance;
     }
 }
