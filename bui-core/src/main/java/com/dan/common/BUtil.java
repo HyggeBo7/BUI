@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.dan.common.log.Logger;
-import com.dan.common.util.ActivityLifecycleHelper;
 
 /**
  * Created by Dan on 2019/7/22 16:52
@@ -23,14 +22,14 @@ public class BUtil {
 
     private static Application sApplication;
 
-    private ActivityLifecycleHelper mActivityLifecycleHelper;
+    //private ActivityLifecycleHelper mActivityLifecycleHelper;
     /**
      * 主线程Handler
      */
     private static final Handler sMainHandler = new Handler(Looper.getMainLooper());
 
     private BUtil() {
-        mActivityLifecycleHelper = new ActivityLifecycleHelper();
+        // mActivityLifecycleHelper = new ActivityLifecycleHelper();
     }
 
     /**
@@ -41,7 +40,7 @@ public class BUtil {
     public static void init(Application application) {
         sApplication = application;
         sContext = application.getApplicationContext();
-        application.registerActivityLifecycleCallbacks(BUtil.getInstance().getActivityLifecycleHelper());
+        //application.registerActivityLifecycleCallbacks(BUtil.getInstance().getActivityLifecycleHelper());
     }
 
     /**
@@ -60,11 +59,11 @@ public class BUtil {
      * @param lifecycleHelper
      * @return
      */
-    public BUtil registerLifecycleCallbacks(Application application, ActivityLifecycleHelper lifecycleHelper) {
+    /*public BUtil registerLifecycleCallbacks(Application application, ActivityLifecycleHelper lifecycleHelper) {
         mActivityLifecycleHelper = lifecycleHelper;
         application.registerActivityLifecycleCallbacks(mActivityLifecycleHelper);
         return this;
-    }
+    }*/
 
     /**
      * 获取全局上下文
@@ -76,9 +75,9 @@ public class BUtil {
         return sContext;
     }
 
-    public ActivityLifecycleHelper getActivityLifecycleHelper() {
+    /*public ActivityLifecycleHelper getActivityLifecycleHelper() {
         return mActivityLifecycleHelper;
-    }
+    }*/
 
     private static void testInitialize() {
         if (sContext == null) {
