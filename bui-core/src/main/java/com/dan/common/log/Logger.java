@@ -1,6 +1,5 @@
 package com.dan.common.log;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -56,7 +55,7 @@ public final class Logger {
      *
      * @param logger
      */
-    public static void setLogger(@NonNull ILogger logger) {
+    public static void setLogger( ILogger logger) {
         sILogger = logger;
     }
 

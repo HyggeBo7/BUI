@@ -1,11 +1,10 @@
 package com.dan.dome.fragment.base;
 
 import android.app.Dialog;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.View;
 
 import com.dan.dome.MainActivity;
-import com.dan.common.util.ActivityLifecycleHelper;
 import com.dan.common.util.DialogUtils;
 
 import butterknife.ButterKnife;

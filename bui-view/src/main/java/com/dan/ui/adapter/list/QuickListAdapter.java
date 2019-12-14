@@ -2,8 +2,8 @@ package com.dan.ui.adapter.list;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.IdRes;
-import android.support.annotation.StringRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.StringRes;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,9 +1,6 @@
 package com.dan.common.util;
 
 import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
 
 import com.dan.common.entity.BaseSerializable;
 import com.dan.common.log.Logger;
@@ -18,11 +15,24 @@ import java.util.Stack;
  *     time   : 2019年7月22日17:09:04
  * </pre>
  */
-public class ActivityLifecycleHelper extends BaseSerializable implements Application.ActivityLifecycleCallbacks {
+public class ActivityHelper extends BaseSerializable {
+
+    private static volatile ActivityHelper INSTANCE;
 
     private Stack<Activity> activityList;
 
-    public ActivityLifecycleHelper() {
+    public static ActivityHelper getInstance() {
+        if (INSTANCE == null) {
+            synchronized (ActivityHelper.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = new ActivityHelper();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+    private ActivityHelper() {
         activityList = new Stack<>();
     }
 
@@ -101,7 +111,7 @@ public class ActivityLifecycleHelper extends BaseSerializable implements Applica
      *
      * @param clazz activity的类
      */
-    public void finishActivity(@NonNull Class<? extends Activity> clazz) {
+    public void finishActivity(Class<? extends Activity> clazz) {
         if (activityList != null) {
             Iterator<Activity> it = activityList.iterator();
             synchronized (it) {
@@ -122,7 +132,7 @@ public class ActivityLifecycleHelper extends BaseSerializable implements Applica
      * 结束所有Activity
      */
     public void finishAllActivity() {
-        if (activityList != null) {
+        if (activityList != null && activityList.size() > 0) {
             for (Activity activity : activityList) {
                 if (activity != null) {
                     if (!activity.isFinishing()) {
@@ -140,43 +150,6 @@ public class ActivityLifecycleHelper extends BaseSerializable implements Applica
      */
     public void exit() {
         finishAllActivity();
-    }
-
-    @Override
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        Logger.v("[onActivityCreated]:" + getActivityName(activity));
-        addActivity(activity);
-    }
-
-    @Override
-    public void onActivityStarted(Activity activity) {
-        Logger.v("[onActivityStarted]:" + getActivityName(activity));
-    }
-
-    @Override
-    public void onActivityResumed(Activity activity) {
-        Logger.v("[onActivityResumed]:" + getActivityName(activity));
-    }
-
-    @Override
-    public void onActivityPaused(Activity activity) {
-        Logger.v("[onActivityPaused]:" + getActivityName(activity));
-    }
-
-    @Override
-    public void onActivityStopped(Activity activity) {
-        Logger.v("[onActivityStopped]:" + getActivityName(activity));
-    }
-
-    @Override
-    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-        Logger.v("[onActivitySaveInstanceState]:" + getActivityName(activity));
-    }
-
-    @Override
-    public void onActivityDestroyed(Activity activity) {
-        Logger.v("[onActivityDestroyed]:" + getActivityName(activity));
-        removeActivity(activity);
     }
 
     private String getActivityName(Object object) {

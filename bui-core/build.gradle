@@ -7,9 +7,9 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0.4"
+        versionName "1.0.5"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -23,7 +23,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compileOnly 'com.android.support:appcompat-v7:28.0.0'
     /*https://github.com/azhon/AppUpdate*/
     compileOnly 'com.azhon:appupdate:2.0.0'
     api 'org.apache.commons:commons-lang3:3.8'
