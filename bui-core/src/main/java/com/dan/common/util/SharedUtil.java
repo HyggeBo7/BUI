@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Map;
+
 /**
  * Created by Bo on 2019/1/16 18:07
  */
@@ -45,12 +47,20 @@ public class SharedUtil {
         return sharedPreferences.getString(key, defValue);
     }
 
-    public int getIntValue(String key, int defValue) {
+    public int getIntValue(String key, Integer defValue) {
         return sharedPreferences.getInt(key, defValue);
     }
 
-    public float getFloatValue(String key, float defValue) {
+    public float getFloatValue(String key, Float defValue) {
         return sharedPreferences.getFloat(key, defValue);
+    }
+
+    public float getLongValue(String key, Long defValue) {
+        return sharedPreferences.getLong(key, defValue);
+    }
+
+    public Map<String, ?> getAllValue() {
+        return sharedPreferences.getAll();
     }
 
     public boolean save(String key, Object param) {
