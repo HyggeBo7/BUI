@@ -5,11 +5,12 @@ import com.dan.common.util.JsonUtil;
 /**
  * Created by Bo on 2016/1/26.
  */
-public class AjaxResultGeneric<T> extends BaseSerializable {
+public class AjaxResultGeneric<T> implements BaseSerializable {
 
     public static final Integer SUCCESS = 1;
     public static final Integer PARAM_ERROR = -1;
     public static final Integer SERVER_ERROR = -500;
+    private static final long serialVersionUID = -834777207795071026L;
 
     private Integer code;
     private String msg;

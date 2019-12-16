@@ -2,18 +2,14 @@ package com.dan.common.entity;
 
 import com.dan.common.util.JsonUtil;
 
-import java.io.Serializable;
-
 /**
  * @fileName: AjaxResult.java
  * @author: Bo
  * @createDate: 2018/9/12 15:58
  * @description: 结果返回
  */
-public class AjaxResult implements Serializable {
-
-    private static final long serialVersionUID = 4068125799671082560L;
-
+public class AjaxResult implements BaseSerializable {
+    private static final long serialVersionUID = -6676570262814076008L;
     public static final Integer SUCCESS = 1;
     public static final Integer PARAM_ERROR = -1;
     public static final Integer SERVER_ERROR = -500;
