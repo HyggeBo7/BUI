@@ -12,6 +12,7 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -30,32 +31,54 @@ public class JsonUtil {
 
     private static final String TAG = "JsonUtil";
 
-    private static Gson gson = new GsonBuilder()
-            .setDateFormat("yyyy-MM-dd HH:mm:ss")
-            .create();
+    private final static Gson GSON;
+
+    static {
+        GSON = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+    }
+
+    public static Gson getGson() {
+        return GSON;
+    }
 
     public static <T> T fromJson(String json, Class<T> cls) {
-
         if (StringUtils.isBlank(json)) {
             return null;
         }
-        return gson.fromJson(json, cls);
+        return GSON.fromJson(json, cls);
+    }
+
+    public static <T> T fromTypeJson(final String json, final Type typeOfT) {
+        if (StringUtils.isBlank(json)) {
+            return null;
+        }
+        return GSON.fromJson(json, typeOfT);
     }
 
     /**
      * 转成list
+     * Deprecated->fromListJsonType()
      *
      * @param json json字符串
      * @param cls  类
      * @return 返回泛型
      */
+    @Deprecated
     public static <T> List<T> fromListJson(String json, Class<T> cls) {
         List<T> list = new ArrayList<T>();
-        JsonArray array = new JsonParser().parse(json).getAsJsonArray();
+        //JsonArray array = new JsonParser().parse(json).getAsJsonArray();
+        JsonArray array = JsonParser.parseString(json).getAsJsonArray();
         for (final JsonElement elem : array) {
-            list.add(gson.fromJson(elem, cls));
+            list.add(GSON.fromJson(elem, cls));
         }
         return list;
+    }
+
+    public static <T> List<T> fromListJsonType(final String json, final Class<T> clazz) {
+        if (StringUtils.isBlank(json)) {
+            return null;
+        }
+        return GSON.fromJson(json, TypeToken.getParameterized(List.class, clazz).getType());
     }
 
     /**
@@ -65,7 +88,7 @@ public class JsonUtil {
      * @return json String
      */
     public static String toJson(Object obj) {
-        return gson.toJson(obj);
+        return GSON.toJson(obj);
     }
 
     /**
@@ -79,7 +102,7 @@ public class JsonUtil {
      */
     public static <T> T fromGenericJson(String json, Class clazzType, Class clazz) {
         Type objectType = type(clazzType, clazz);
-        return gson.fromJson(json, objectType);
+        return GSON.fromJson(json, objectType);
     }
 
     class IntegerDefault0Adapter implements JsonSerializer<Integer>, JsonDeserializer<Integer> {

@@ -156,8 +156,6 @@ public class DownloadAppUtils {
                 .setDialogButtonColor(Color.parseColor(updateBean.getDialogButtonColor()))
                 //设置按钮的文字颜色
                 .setDialogButtonTextColor(Color.parseColor(updateBean.getDialogButtonTextColor()))
-                //支持断点下载
-                .setBreakpointDownload(true)
                 //设置是否显示通知栏进度
                 .setShowNotification(updateBean.isShowNotification())
                 //设置强制更新

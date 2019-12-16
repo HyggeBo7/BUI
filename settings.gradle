@@ -1,1 +1,1 @@
-include ':app', ':bui-core', ':html_library', ':bui-view'
+include ':app', ':bui-core', ':bui-view'
