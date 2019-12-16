@@ -31,7 +31,6 @@ public class ToastUtil {
                 }
             });
         }
-
     }
 
     private static void showToast(Context context, String msg, int duration) {
