@@ -29,7 +29,7 @@
             android:textOff="关"
             android:textOn="开" />
         <!--开关按钮-->
-        <com.dan.ui.widget.switchs.SwitchButton
+        <top.dearbo.ui.widget.switchs.SwitchButton
             android:id="@+id/sb_manual_auto"
             android:layout_width="120dp"
             android:layout_height="60dp"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    tools:context="top.dearbo.dome.SplashActivity">
 
     <!--让图片全屏显示android:scaleType="fitXY"-->
     <ImageView

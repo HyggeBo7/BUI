@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.0"
         app:textTint="@color/colorPrimary" />
 
-    <com.dan.ui.widget.grouplist.ExpandTabView
+    <top.dearbo.ui.widget.grouplist.ExpandTabView
         android:id="@+id/etv_list"
         android:layout_width="match_parent"
         android:layout_height="50dp"

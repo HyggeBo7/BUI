@@ -37,7 +37,7 @@
                 android:src="@drawable/search_select_im_back" />
         </RelativeLayout>
 
-        <com.dan.ui.widget.searchselect.SearchView
+        <top.dearbo.ui.widget.searchselect.SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
