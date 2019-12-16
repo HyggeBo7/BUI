@@ -5,8 +5,8 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
-import com.dan.common.BUtil;
 import com.dan.common.toast.ToastUtils;
+import com.dan.common.util.ActivityHelper;
 import com.dan.common.util.DateUtil;
 import com.dan.common.util.FileUtil;
 
@@ -64,7 +64,7 @@ public class CrashCatchHandler implements Thread.UncaughtExceptionHandler {
             Log.i(TAG, "CrashCatchHandler->the context cann't be empty ");
             return;
         }
-        mContext = c;
+        this.mContext = c;
         if (childPath != null && !"".equals(childPath.trim())) {
             this.thisPath = PATH + childPath + "/";
         } else {
@@ -155,8 +155,7 @@ public class CrashCatchHandler implements Thread.UncaughtExceptionHandler {
         } else {
             ToastUtils.toast("很抱歉,程序出现异常,请重新打开!");
             //退出程序,finish所有的Activity
-            //ActivityLifecycleHelper.getInstance().finishAll();
-            BUtil.getInstance().getActivityLifecycleHelper().exit();
+            ActivityHelper.getInstance().exit();
             //退出Jvm,释放所占内存资源，0表示正常退出，非0表示异常
             System.exit(1);
             //杀死这个进程避免类似ios直接退出。

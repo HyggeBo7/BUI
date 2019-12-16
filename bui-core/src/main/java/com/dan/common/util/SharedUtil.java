@@ -4,12 +4,14 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Map;
+
 /**
  * Created by Bo on 2019/1/16 18:07
  */
 public class SharedUtil {
 
-    private static final String FileKey = "user_login";
+    private static final String FileKey = "system_shared_key";
 
     private SharedPreferences.Editor edit;
 
@@ -30,11 +32,35 @@ public class SharedUtil {
     }
 
     public Boolean getBooleanValue(String key) {
-        return sharedPreferences.getBoolean(key, false);
+        return getBooleanValue(key, false);
+    }
+
+    public Boolean getBooleanValue(String key, boolean defValue) {
+        return sharedPreferences.getBoolean(key, defValue);
     }
 
     public String getStringValue(String key) {
-        return sharedPreferences.getString(key, null);
+        return getStringValue(key, null);
+    }
+
+    public String getStringValue(String key, String defValue) {
+        return sharedPreferences.getString(key, defValue);
+    }
+
+    public int getIntValue(String key, Integer defValue) {
+        return sharedPreferences.getInt(key, defValue);
+    }
+
+    public float getFloatValue(String key, Float defValue) {
+        return sharedPreferences.getFloat(key, defValue);
+    }
+
+    public float getLongValue(String key, Long defValue) {
+        return sharedPreferences.getLong(key, defValue);
+    }
+
+    public Map<String, ?> getAllValue() {
+        return sharedPreferences.getAll();
     }
 
     public boolean save(String key, Object param) {

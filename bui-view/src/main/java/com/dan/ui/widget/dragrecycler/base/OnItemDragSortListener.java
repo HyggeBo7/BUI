@@ -1,6 +1,6 @@
 package com.dan.ui.widget.dragrecycler.base;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * @author Bo

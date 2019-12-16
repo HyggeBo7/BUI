@@ -1,6 +1,5 @@
 package com.dan.common.log;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.io.PrintWriter;
@@ -89,7 +88,7 @@ public class LogcatLogger implements ILogger {
      * @param tag      标签
      * @param sub      信息
      */
-    private void logSub(int priority, @NonNull String tag, @NonNull String sub) {
+    private void logSub(int priority, String tag, String sub) {
         switch (priority) {
             case Log.VERBOSE:
                 Log.v(tag, sub);
