@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 
 import java.util.ArrayList;
 import java.util.List;

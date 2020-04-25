@@ -28,7 +28,7 @@
         tools:targetApi="n">
         <activity
             android:name="top.dearbo.dome.SplashActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Base">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,15 +38,15 @@
         </activity>
         <activity
             android:name=".activity.LoginActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboard"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".activity.CameraActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <!--安卓9,不加会报找不到BasicHttpParams-->
         <!--<uses-library

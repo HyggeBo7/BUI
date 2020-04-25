@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 
 import java.util.ArrayList;
 import java.util.List;

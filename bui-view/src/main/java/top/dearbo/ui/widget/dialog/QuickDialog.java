@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 
 
 /**

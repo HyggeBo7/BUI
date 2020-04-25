@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 import top.dearbo.ui.adapter.SearchSelectAdapter;
 import top.dearbo.ui.adapter.SimpleSpinnerTextFormatter;
 import top.dearbo.ui.adapter.impl.SpinnerTextFormatter;

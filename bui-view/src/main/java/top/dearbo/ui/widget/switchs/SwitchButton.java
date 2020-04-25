@@ -17,7 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Checkable;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 
 /**
  * Created by Bo on 2019/3/28 11:36

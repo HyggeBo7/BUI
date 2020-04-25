@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 
 /**
  * 【Item侧滑删除菜单】

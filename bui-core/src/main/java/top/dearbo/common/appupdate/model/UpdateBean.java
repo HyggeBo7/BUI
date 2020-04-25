@@ -1,6 +1,6 @@
 package top.dearbo.common.appupdate.model;
 
-import com.dan.common.R;
+import top.dearbo.common.R;
 import top.dearbo.common.appupdate.util.DownloadAppUtils;
 
 import java.io.Serializable;

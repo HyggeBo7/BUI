@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 import top.dearbo.ui.adapter.impl.SpinnerTextFormatter;
 import top.dearbo.ui.adapter.list.base.BaseListAdapter;
 

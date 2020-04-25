@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 import top.dearbo.ui.adapter.impl.SpinnerTextFormatter;
 
 import java.util.Arrays;

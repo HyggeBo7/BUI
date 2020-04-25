@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.dan.common.R;
+import top.dearbo.common.R;
 
 /**
  * Created by Bo on 2018/10/17.

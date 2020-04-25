@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 
 /**
  * by:2019年2月15日17:03:32

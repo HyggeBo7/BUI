@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 import top.dearbo.ui.adapter.recycler.RecyclerViewUtil;
 import top.dearbo.ui.widget.dragrecycler.base.DragTouchHelper;
 import top.dearbo.ui.widget.dragrecycler.base.OnItemDragSortListener;

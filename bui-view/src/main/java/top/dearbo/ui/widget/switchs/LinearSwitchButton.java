@@ -7,17 +7,17 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.dan.ui.R;
-import top.dearbo.ui.adapter.SimpleSpinnerTextFormatter;
-import top.dearbo.ui.adapter.SimpleTextAdapter;
-import top.dearbo.ui.adapter.impl.SpinnerTextFormatter;
-import top.dearbo.ui.autoline.AutoWrapLineLayout;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import top.dearbo.ui.R;
+import top.dearbo.ui.adapter.SimpleSpinnerTextFormatter;
+import top.dearbo.ui.adapter.SimpleTextAdapter;
+import top.dearbo.ui.adapter.impl.SpinnerTextFormatter;
+import top.dearbo.ui.autoline.AutoWrapLineLayout;
 
 /**
  * Created by Bo on 2019/3/28 9:22
@@ -116,7 +116,7 @@ public class LinearSwitchButton<T> extends LinearLayout {
         groupMap.putAll(groupMapValue);
         groupList.addAll(new LinkedList<String>(groupMap.keySet()));
 
-        regionListViewAdapterLeft = new SimpleTextAdapter(context, groupList, R.drawable.linear_switch_item_selected, com.dan.ui.R.drawable.item_etv_choose_ear_selector);
+        regionListViewAdapterLeft = new SimpleTextAdapter(context, groupList, R.drawable.linear_switch_item_selected, R.drawable.item_etv_choose_ear_selector);
         regionListViewAdapterLeft.setTextSize(16);
         regionListViewAdapterLeft.setTextFormatter(regionSpinnerTextFormatterLeft);
 

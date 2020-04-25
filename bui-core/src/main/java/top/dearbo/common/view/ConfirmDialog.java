@@ -5,7 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import com.dan.common.R;
+import top.dearbo.common.R;
 
 
 /**

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 import top.dearbo.ui.adapter.SimpleSpinnerTextFormatter;
 import top.dearbo.ui.adapter.impl.SpinnerTextFormatter;
 import top.dearbo.ui.adapter.SimpleTextAdapter;

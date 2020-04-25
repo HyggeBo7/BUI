@@ -52,7 +52,7 @@
         app:left_text="用户名"
         app:right_text="" />
 
-    <!--<com.dan.ui.widget.item.ItemView
+    <!--<top.dearbo.ui.widget.item.ItemView
         android:id="@+id/sex"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
@@ -60,7 +60,7 @@
         app:left_text="性别"
         app:right_text="男" />-->
 
-    <!--<com.dan.ui.widget.item.ItemView
+    <!--<top.dearbo.ui.widget.item.ItemView
         android:id="@+id/pass"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
@@ -69,7 +69,7 @@
         app:left_text="修改密码"
         app:right_text="" />
 
-    <com.dan.ui.widget.item.ItemView
+    <top.dearbo.ui.widget.item.ItemView
         android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="50dp"

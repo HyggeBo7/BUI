@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.dan.ui.R;
+import top.dearbo.ui.R;
 
 
 /**
